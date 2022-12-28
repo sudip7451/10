@@ -1,4 +1,5 @@
 //binary search
+//binary search
 #include<iostream>
 using namespace std;
 
@@ -6,12 +7,12 @@ class binary
 {
 	public:
 	void binary_search();
-	int binary_main();
 	int i,l,r,mid,roll[100],n,key;	
 };
 void binary::binary_search()
 {
 	l=0,r=n-1;
+	int flag=0;
 	cout<<"Enter total number of students: "<<endl;
 	cin>>n;
 	cout<<"Enter roll numbers of students:"<<endl;
@@ -27,17 +28,14 @@ void binary::binary_search()
 	}
 	cout<<"\nEnter the roll which have to search:"<<endl;
 	cin>>key;
-	binary_main();
-	
-	
-}
-int binary::binary_main()
-{
 	while(l<=r)
 	{	mid=(l+r)/2;
 		if(key==roll[mid])
 		{
-		return roll[mid];
+			cout<<"Roll number found at index:"<<mid<<endl;
+			flag=1;
+			break;
+			
 			
 		}
 		else if(key<roll[mid])
@@ -49,7 +47,11 @@ int binary::binary_main()
 			l=mid+1;
 		}
 	}
-	return -1;
+	if(flag==0)
+	{
+		cout<<"\nElement not found";
+	}
+	
 }
 int main()
 {
